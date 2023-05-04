@@ -1,0 +1,52 @@
+Basic router security configuraton
+
+Router>en
+Router#conf te
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#hostname R1
+R1(config)#enable password cisco
+R1(config)#do show run
+Building configuration...
+
+Current configuration : 630 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+no service password-encryption
+!
+hostname R1
+!
+!
+!
+enable password cisco
+
+ip cef
+no ipv6 cef
+
+!
+license udi pid CISCO1941/K9 sn FTX15244N57-
+
+
+R1(config)#service password-encryption
+R1(config)#do show run
+Building configuration...
+
+Current configuration : 636 bytes
+!
+version 15.1
+no service timestamps log datetime msec
+no service timestamps debug datetime msec
+service password-encryption
+!
+hostname R1
+
+enable password 7 0822455D0A16
+
+ip cef
+no ipv6 cef
+
+R1(config)#enable secret ccna
+exit and check from start
+R1# copy running-config startup-config
+exit and check once again so the changes made in running config are copied to startup config
